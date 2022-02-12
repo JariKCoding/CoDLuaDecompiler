@@ -12,6 +12,7 @@ namespace CoDLuaDecompiler.Decompiler.LuaFile.Havok
 {
     public abstract class HavokLuaFile : LuaFile
     {
+        public HavokDebugFile DebugFile { get; set; }
         public override IInstructionConverter InstructionConverter => new HavokInstructionConverter();
         public override IAnalyzerList AnalyzerList => new HavokAnalyzerList();
         public override IAnalyzerList FileAnalyzerList => new HavokFileAnalyzerList();

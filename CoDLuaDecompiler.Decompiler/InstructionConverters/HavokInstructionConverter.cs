@@ -69,7 +69,7 @@ namespace CoDLuaDecompiler.Decompiler.InstructionConverters
             var luaFunction = (HavokLuaFunction) luaFunc;
 
             FunctionDebugInfo debugFunc = null;
-            if (luaFunction.LuaFile is HavokLuaFileT7 ht7 && ht7.DebugFile != null)
+            if (luaFunction.LuaFile is HavokLuaFile ht7 && ht7.DebugFile != null)
             {
                 var debugInfo = ht7.DebugFile.DebugInfo;
                 debugFunc = debugInfo.Find(d => d.Id == function.Id);
@@ -608,7 +608,7 @@ namespace CoDLuaDecompiler.Decompiler.InstructionConverters
                         break;
                     case LuaHavokOpCode.HKS_OPCODE_VARARG:
                         var varArgs = new List<IdentifierReference>();
-                        for (int arg = (int)i.A; arg <= i.A + i.B - 1; arg++)
+                        for (int arg = (int)i.A; arg < i.A + i.B - 1; arg++)
                         {
                             varArgs.Add(new IdentifierReference(_symbolTable.GetRegister((uint)arg)));
                         }

@@ -19,6 +19,10 @@ namespace CoDLuaDecompiler.Decompiler.LuaFile.Havok
 
             ReadDebugFile();
         }
+        
+        public HavokDebugFile()
+        {
+        }
 
         private void ReadDebugFile()
         {

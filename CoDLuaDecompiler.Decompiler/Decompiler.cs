@@ -21,7 +21,7 @@ namespace CoDLuaDecompiler.Decompiler
         public Function GetDecompiledFile(ILuaFile luaFile)
         {
             var function = new Function(new SymbolTable());
-            
+            luaFile.FunctionIdCounter = 0;
             DecompileFunction(function, luaFile.MainFunction);
 
             return function;
