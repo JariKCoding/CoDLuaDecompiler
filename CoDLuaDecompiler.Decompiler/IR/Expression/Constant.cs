@@ -85,7 +85,7 @@ namespace CoDLuaDecompiler.Decompiler.IR.Expression
                 case Identifiers.ValueType.Boolean:
                     return Boolean ? "true" : "false";
                 case Identifiers.ValueType.Hash:
-                    return $"0x{Hash & 0xFFFFFFFFFFFFFFF:X}";
+                    return $"0x{Hash/* & 0xFFFFFFFFFFFFFFF*/:X016}";
                 case Identifiers.ValueType.Table:
                     return "{}";
                 case Identifiers.ValueType.VarArgs:

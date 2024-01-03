@@ -50,7 +50,7 @@ namespace CoDLuaDecompiler.Decompiler.LuaFile.Structures.LuaFunction.LuaJit
                 var hi = Reader.ReadULEB128();
                 var lo = Reader.ReadULEB128();
                 var idfk = Reader.ReadByte(); // Seems like hash type? 2 for material, 0 for array index, engine #
-                var hash = ((hi << 32) | lo) & 0xFFFFFFFFFFFFFFF;
+                var hash = ((hi << 32) | lo); //& 0xFFFFFFFFFFFFFFF;
                 if (Decompiler.HashEntries.ContainsKey(hash))
                     return new LuaJitConstant(Decompiler.HashEntries[hash]);
                 return new LuaJitConstant(hash);
@@ -71,7 +71,7 @@ namespace CoDLuaDecompiler.Decompiler.LuaFile.Structures.LuaFunction.LuaJit
                 var hi = Reader.ReadULEB128();
                 var lo = Reader.ReadULEB128();
                 Reader.ReadByte();
-                var hash = ((hi << 32) | lo) & 0xFFFFFFFFFFFFFFF;
+                var hash = ((hi << 32) | lo);// & 0xFFFFFFFFFFFFFFF;
                 if (Decompiler.HashEntries.ContainsKey(hash))
                     return new LuaJitConstant(Decompiler.HashEntries[hash]);
                 return new LuaJitConstant(hash);
